@@ -16,6 +16,10 @@ namespace BusinessLogic
         private List<Student> students { get; set; }
             = new List<Student>();
 
+        public int GetCountStudent()
+        {
+            return students.Count;
+        }
         public void AddStudent(string name, string speciality, string group)
         {
             students.Add(new Student(name, speciality, group));
@@ -24,6 +28,10 @@ namespace BusinessLogic
         public void DeleteStudent(string name, string speciality, string group)
         {
             students.Remove(GetStudent(name, speciality, group));
+        }
+        public void DeleteStudent(int index)
+        {
+            students.RemoveAt(index);
         }
         public Student GetStudent(string name, string speciality, string group)
         {
@@ -47,7 +55,6 @@ namespace BusinessLogic
             }
             return false;
         }
-
         public string[][] GetAllStudentsFormatArrayOfArrays()
         {
             string[][] result = new string[students.Count][];
@@ -56,17 +63,6 @@ namespace BusinessLogic
             {
                 result[i] = new string[] { students[i].name, 
                     students[i].speciality, students[i].group };
-            }
-
-            return result;
-        }
-        public Student[] GetAllStudentsFormatArrayOfStudents()
-        {
-            Student[] result = new Student[students.Count];
-
-            for (int i = 0; i < students.Count; i++)
-            {
-                result[i] = students[i];
             }
 
             return result;

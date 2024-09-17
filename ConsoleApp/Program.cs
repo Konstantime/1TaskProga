@@ -56,10 +56,11 @@ namespace ConsoleApp
 
         static private void DeleteStudent()
         {
-            (string name, string speciality, string group) = InterviewUser();
-            if( logic.DoesStudentExist(name, speciality, group) )
+            Console.WriteLine("Введите индекс студента, которого хотите убрать:");
+            int index = Convert.ToInt32(Console.ReadLine());
+            if( logic.GetCountStudent() >= index )
             {
-                logic.DeleteStudent(name, speciality, group);
+                logic.DeleteStudent(index);
                 ClearConsoleBySavingInstructions();
             }
             else
@@ -89,14 +90,14 @@ namespace ConsoleApp
 
         static private void PrintStudentTable()
         {
-            Console.WriteLine("{0,-20} {1,-20} {2,-20}", "Name", "Speciality", "Group");
-            Console.WriteLine(new string('-', 50));
+            Console.WriteLine("{0,-10} {1,-20} {2,-20} {3,-20}", "Index", "Name", "Speciality", "Group");
+            Console.WriteLine(new string('-', 70));
 
             string[][] students = logic.GetAllStudentsFormatArrayOfArrays();
             for (int i = 0; i < students.Length; i++)
             {
-                Console.WriteLine("{0,-20} {1,-20} {2,-20}", 
-                    students[i][0], students[i][1], students[i][2]);
+                Console.WriteLine("{0,-10} {1,-20} {2,-20} {3,-20}", 
+                    i, students[i][0], students[i][1], students[i][2]);
             }
         }
 
