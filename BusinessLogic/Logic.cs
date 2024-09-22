@@ -31,7 +31,9 @@ namespace BusinessLogic
         }
         public void DeleteStudent(int index)
         {
-            students.RemoveAt(index);
+            if( students.Count > index ) {
+                students.RemoveAt(index);
+            }
         }
         public Student GetStudent(string name, string speciality, string group)
         {
@@ -89,16 +91,14 @@ namespace BusinessLogic
 
         public void FillTableWithDemoData()
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 1; i++)
             {
                 AddStudent(Convert.ToString(i), "Повар", "ИН20-45л");
             }
-            for (int i = 0; i < 20; i++)
-            {
+            for (int i = 0; i < 5; i++) {
                 AddStudent(Convert.ToString(i), "Программист", "КИ23-21б");
             }
-            for (int i = 0; i < 2; i++)
-            {
+            for (int i = 0; i < 3; i++) {
                 AddStudent(Convert.ToString(i), "Моряк", "ФИ26-7б");
             }
         }

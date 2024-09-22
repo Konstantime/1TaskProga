@@ -148,6 +148,7 @@ namespace ConsoleApp
         static private void ClearConsoleBySavingInstructions()
         {
             Console.Clear();
+
             Console.WriteLine("Введите код желаемой команды" +
                     "\n 1 - Создать студента" +
                     "\n 2 - Удалить студента " +

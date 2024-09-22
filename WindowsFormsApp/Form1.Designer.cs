@@ -39,6 +39,9 @@
             this.InputSpecialityLabel = new System.Windows.Forms.Label();
             this.InputGroupTextBox = new System.Windows.Forms.TextBox();
             this.InputGroupLabel = new System.Windows.Forms.Label();
+            this.InputIndexTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.feedbackLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // AddStudentButton
@@ -94,54 +97,83 @@
             // InputNameLabel
             // 
             this.InputNameLabel.AutoSize = true;
-            this.InputNameLabel.Location = new System.Drawing.Point(303, 30);
+            this.InputNameLabel.Location = new System.Drawing.Point(303, 18);
             this.InputNameLabel.Name = "InputNameLabel";
-            this.InputNameLabel.Size = new System.Drawing.Size(159, 16);
+            this.InputNameLabel.Size = new System.Drawing.Size(144, 15);
             this.InputNameLabel.TabIndex = 5;
             this.InputNameLabel.Text = "Введите Имя студента:";
             // 
             // InputNameTextBox
             // 
-            this.InputNameTextBox.Location = new System.Drawing.Point(306, 63);
+            this.InputNameTextBox.Location = new System.Drawing.Point(306, 44);
             this.InputNameTextBox.Name = "InputNameTextBox";
-            this.InputNameTextBox.Size = new System.Drawing.Size(262, 22);
+            this.InputNameTextBox.Size = new System.Drawing.Size(262, 20);
             this.InputNameTextBox.TabIndex = 6;
             // 
             // InputSpecialityTextBox
             // 
-            this.InputSpecialityTextBox.Location = new System.Drawing.Point(306, 147);
+            this.InputSpecialityTextBox.Location = new System.Drawing.Point(306, 112);
             this.InputSpecialityTextBox.Name = "InputSpecialityTextBox";
-            this.InputSpecialityTextBox.Size = new System.Drawing.Size(262, 22);
+            this.InputSpecialityTextBox.Size = new System.Drawing.Size(262, 20);
             this.InputSpecialityTextBox.TabIndex = 8;
             // 
             // InputSpecialityLabel
             // 
             this.InputSpecialityLabel.AutoSize = true;
-            this.InputSpecialityLabel.Location = new System.Drawing.Point(303, 115);
+            this.InputSpecialityLabel.Location = new System.Drawing.Point(303, 82);
             this.InputSpecialityLabel.Name = "InputSpecialityLabel";
-            this.InputSpecialityLabel.Size = new System.Drawing.Size(234, 16);
+            this.InputSpecialityLabel.Size = new System.Drawing.Size(210, 15);
             this.InputSpecialityLabel.TabIndex = 7;
             this.InputSpecialityLabel.Text = "Введите Специальность студента:";
             // 
             // InputGroupTextBox
             // 
-            this.InputGroupTextBox.Location = new System.Drawing.Point(306, 236);
+            this.InputGroupTextBox.Location = new System.Drawing.Point(306, 197);
             this.InputGroupTextBox.Name = "InputGroupTextBox";
-            this.InputGroupTextBox.Size = new System.Drawing.Size(262, 22);
+            this.InputGroupTextBox.Size = new System.Drawing.Size(262, 20);
             this.InputGroupTextBox.TabIndex = 10;
             // 
             // InputGroupLabel
             // 
             this.InputGroupLabel.AutoSize = true;
-            this.InputGroupLabel.Location = new System.Drawing.Point(303, 204);
+            this.InputGroupLabel.Location = new System.Drawing.Point(303, 157);
             this.InputGroupLabel.Name = "InputGroupLabel";
-            this.InputGroupLabel.Size = new System.Drawing.Size(180, 16);
+            this.InputGroupLabel.Size = new System.Drawing.Size(157, 15);
             this.InputGroupLabel.TabIndex = 9;
             this.InputGroupLabel.Text = "Введите Группу студента:";
             // 
+            // InputIndexTextBox
+            // 
+            this.InputIndexTextBox.Location = new System.Drawing.Point(306, 270);
+            this.InputIndexTextBox.Name = "InputIndexTextBox";
+            this.InputIndexTextBox.Size = new System.Drawing.Size(262, 20);
+            this.InputIndexTextBox.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(303, 237);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(161, 15);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Введите Индекс студента:";
+            // 
+            // feedbackLabel
+            // 
+            this.feedbackLabel.AutoSize = true;
+            this.feedbackLabel.Location = new System.Drawing.Point(12, 318);
+            this.feedbackLabel.Name = "feedbackLabel";
+            this.feedbackLabel.Size = new System.Drawing.Size(123, 15);
+            this.feedbackLabel.TabIndex = 13;
+            this.feedbackLabel.Text = "Добро пожаловать)";
+            this.feedbackLabel.Click += new System.EventHandler(this.label2_Click);
+            // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(585, 312);
+            this.ClientSize = new System.Drawing.Size(585, 351);
+            this.Controls.Add(this.feedbackLabel);
+            this.Controls.Add(this.InputIndexTextBox);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.InputGroupTextBox);
             this.Controls.Add(this.InputGroupLabel);
             this.Controls.Add(this.InputSpecialityTextBox);
@@ -173,6 +205,9 @@
         private System.Windows.Forms.Label InputSpecialityLabel;
         private System.Windows.Forms.TextBox InputGroupTextBox;
         private System.Windows.Forms.Label InputGroupLabel;
+        private System.Windows.Forms.TextBox InputIndexTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label feedbackLabel;
     }
 }
 

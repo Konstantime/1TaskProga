@@ -33,7 +33,6 @@ namespace WindowsFormsApp
         private void FillGistogram()
         {
             Dictionary<string, int> countEverySpeciality = logic.GetCountStudentsOfEverySpeciality();
-            MessageBox.Show( Convert.ToString( countEverySpeciality.Count ));
 
             List<string> namesSpecialties = new List<string>();
             List<int> countsSpecialties = new List<int>();
@@ -43,7 +42,6 @@ namespace WindowsFormsApp
                 namesSpecialties.Add( item.Key );
                 countsSpecialties.Add( item.Value );
             }
-
 
             // Настраиваем диаграмму
             chart1.ChartAreas[0].AxisX.Title = "Items";

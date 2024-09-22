@@ -37,7 +37,10 @@ namespace WindowsFormsApp
         private DataTable ToDataTable(string[][] data)
         {
             DataTable result = new DataTable();
-            string[] namesColumns = new string[] { "Имя", "Специальность", "Группа" };
+            string[] namesColumns = new string[] { "Индекс", "Имя", "Специальность", "Группа" };
+
+            result.Columns.Add($"Column{0}");
+            result.Columns[0].ColumnName = namesColumns[0];
 
             // Добавляем столбцы
             for (int i = 0; i < data[1].Length; i++)
@@ -46,13 +49,16 @@ namespace WindowsFormsApp
                 result.Columns[i].ColumnName = namesColumns[i];
             }
 
+            int count = 0;
             for (int i = 0; i < data.Length; i++)
             {
                 DataRow row = result.NewRow();
-                for (int j = 0; j < data[1].Length; j++)
-                {
-                    row[j] = data[i][j];
+                row[0] = count;
+                count++;
+                for (int j = 1; j < data[1].Length + 1; j++) {
+                    row[j] = data[i][j-1];
                 }
+
                 result.Rows.Add(row);
             }
 

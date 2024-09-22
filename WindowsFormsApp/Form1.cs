@@ -21,12 +21,29 @@ namespace WindowsFormsApp
 
         private void AddStudentButton_Click(object sender, EventArgs e)
         {
-            logic.AddStudent(InputNameTextBox.Text, InputSpecialityTextBox.Text, InputGroupTextBox.Text);
+            if(InputNameTextBox.Text != "" && InputSpecialityTextBox.Text != "" && InputGroupTextBox.Text != "") {
+                logic.AddStudent(InputNameTextBox.Text, InputSpecialityTextBox.Text, InputGroupTextBox.Text);
+                feedbackLabel.Text = "Студент, добавлен)";
+            }
+            else {
+                feedbackLabel.Text = "Необходимо заполнить все поля!!! (Индекс необязателен)";
+            }
         }
 
         private void DeleteStudentButton_Click(object sender, EventArgs e)
         {
-            logic.DeleteStudent(InputNameTextBox.Text, InputSpecialityTextBox.Text, InputGroupTextBox.Text);
+            if(InputIndexTextBox.Text != "") {
+                if(logic.GetCountStudent() >= Convert.ToInt32(InputIndexTextBox.Text)) {
+                    logic.DeleteStudent(Convert.ToInt32(InputIndexTextBox.Text));
+                    feedbackLabel.Text = "Студент успешно удален)";
+                }
+                else {
+                    feedbackLabel.Text = "Студента с таким индексом не существует";
+                }
+            }
+            else {
+                feedbackLabel.Text = "Необходимо ввести индекс студента, которого хотите удалить!!!";
+            }
         }
 
         private void OutputTableStudentsButton_Click(object sender, EventArgs e)
@@ -38,12 +55,17 @@ namespace WindowsFormsApp
         private void FillTableDemoDataButton_Click(object sender, EventArgs e)
         {
             logic.FillTableWithDemoData();
+            feedbackLabel.Text = "Таблица успешно заполнена тестовыми данными)";
         }
 
         private void OutputGistogramOfStudentsButton_Click(object sender, EventArgs e)
         {
             GistogramForm gistogramForm = new GistogramForm(logic);
             gistogramForm.ShowDialog();
+        }
+
+        private void label2_Click(object sender, EventArgs e) {
+
         }
     }
 }
