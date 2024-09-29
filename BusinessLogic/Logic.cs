@@ -22,41 +22,17 @@ namespace BusinessLogic
         }
         public void AddStudent(string name, string speciality, string group)
         {
-            students.Add(new Student(name, speciality, group));
+            students.Add(new Student() { name = name, speciality = speciality, group = group });
         }
 
-        public void DeleteStudent(string name, string speciality, string group)
-        {
-            students.Remove(GetStudent(name, speciality, group));
-        }
+   
         public void DeleteStudent(int index)
         {
-            if( students.Count > index ) {
+            if (index >= 0 && students.Count > index) {
                 students.RemoveAt(index);
             }
         }
-        public Student GetStudent(string name, string speciality, string group)
-        {
-            foreach (Student student in students)
-            {
-                if( student.name == name && student.speciality == speciality && student.group == group )
-                {
-                    return student;
-                }
-            }
-            return null;
-        }
-        public bool DoesStudentExist(string name, string speciality, string group)
-        {
-            foreach (Student student in students)
-            {
-                if (student.name == name && student.speciality == speciality && student.group == group)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
+
         public string[][] GetAllStudentsFormatArrayOfArrays()
         {
             string[][] result = new string[students.Count][];

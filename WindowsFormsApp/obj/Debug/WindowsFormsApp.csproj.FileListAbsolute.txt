@@ -14,5 +14,4 @@ C:\Users\Kostya\source\repos\Semestr3\1Task\1TaskProga\WindowsFormsApp\obj\Debug
 C:\Users\Kostya\source\repos\Semestr3\1Task\1TaskProga\WindowsFormsApp\obj\Debug\WindowsFormsApp.csproj.CopyComplete
 C:\Users\Kostya\source\repos\Semestr3\1Task\1TaskProga\WindowsFormsApp\obj\Debug\WindowsFormsApp.exe
 C:\Users\Kostya\source\repos\Semestr3\1Task\1TaskProga\WindowsFormsApp\obj\Debug\WindowsFormsApp.pdb
-C:\Users\Kostya\source\repos\Semestr3\1Task\1TaskProga\WindowsFormsApp\obj\Debug\WindowsFormsApp.GistogramForm.resources
-C:\Users\Kostya\source\repos\Semestr3\1Task\1TaskProga\WindowsFormsApp\obj\Debug\WindowsFormsApp.TableForm.resources
+C:\Users\Kostya\source\repos\Semestr3\1Task\1TaskProga\WindowsFormsApp\obj\Debug\WindowsFormsApp.AddStudentForm.resources

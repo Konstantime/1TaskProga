@@ -56,36 +56,81 @@ namespace ConsoleApp
 
         static private void DeleteStudent()
         {
-            Console.WriteLine("Введите индекс студента, которого хотите убрать:");
-            int index = Convert.ToInt32(Console.ReadLine());
-            if( logic.GetCountStudent() >= index )
-            {
-                logic.DeleteStudent(index);
+            int index;
+            string output = "";
+
+            while (true) {
                 ClearConsoleBySavingInstructions();
-            }
-            else
-            {
-                ClearConsoleBySavingInstructions();
-                Console.WriteLine("Такого студента не существует");
+                Console.WriteLine(output);
+                PrintStudentTable();
+                Console.WriteLine("Введите индекс студента, которого хотите убрать: \n" +
+                    "Если вы передумали убирать студента наберите символ -");
+                string input = Console.ReadLine().Trim();
+                if(input == "-") {
+                    output = "Студент не был убран(";
+                    break;
+                }
+                else if (input == "") {
+                    output = "Строка не должна быть пустой";
+                }
+                else if(DoesItContainOnlyNumbers(input) == false) {
+                    output = "Строка содержит не только числа";
+                }
+                else {
+                    index = Convert.ToInt32( input);
+
+                    if(index >= 0 && logic.GetCountStudent() <= index) {
+                        output = "Такого студента не существует";
+                    }
+                    else {
+                        ClearConsoleBySavingInstructions();
+                        Console.WriteLine("Студент успешно удален)");
+                        logic.DeleteStudent(index);
+                        break;
+                    }
+                }
             }
         }
+
+        static private bool DoesItContainOnlyNumbers( string input ) {
+            if (input.All(char.IsDigit)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+
+        }
+
 
         static private (string name, string speciality, string group) InterviewUser()
         {
             CompletelyClearConsole();
-            Console.WriteLine("Введи имя студента");
-            string name = Console.ReadLine();
+
+            string name = AskUserForParameter("Имя");
             CompletelyClearConsole();
 
-            Console.WriteLine("Введи Специальность студента");
-            string speciality = Console.ReadLine();
+            string speciality = AskUserForParameter("Специальность");
             CompletelyClearConsole();
 
-            Console.WriteLine("Введи Группу студента");
-            string group = Console.ReadLine();
+            string group = AskUserForParameter("Группу");
             CompletelyClearConsole();
 
             return (name, speciality, group);
+        }
+
+        static private string AskUserForParameter(string parametr) {
+            while( true) {
+                Console.WriteLine("Введи " + parametr + " студента");
+                string input = Console.ReadLine().Trim();
+                if (input == null || input == "") {
+                    CompletelyClearConsole();
+                    Console.WriteLine("Строка не должна быть пустой");
+                }
+                else {
+                    return (input);
+                }
+            }
         }
 
         static private void PrintStudentTable()
