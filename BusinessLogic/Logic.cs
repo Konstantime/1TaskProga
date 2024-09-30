@@ -25,7 +25,6 @@ namespace BusinessLogic
             students.Add(new Student() { name = name, speciality = speciality, group = group });
         }
 
-   
         public void DeleteStudent(int index)
         {
             if (index >= 0 && students.Count > index) {

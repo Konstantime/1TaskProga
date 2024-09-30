@@ -17,14 +17,12 @@ namespace WindowsFormsApp
     public partial class Form1 : Form
     {
         public Logic logic = new Logic();
-        public Form1()
-        {
+        public Form1() {
             InitializeComponent();
             СustomizeListView();
         }
 
-        private void AddStudentButton_Click(object sender, EventArgs e)
-        {
+        private void AddStudentButton_Click(object sender, EventArgs e) {
             AddStudentForm addStudentForm = new AddStudentForm(logic);
 
             if (addStudentForm.ShowDialog() == DialogResult.OK) {

@@ -38,6 +38,9 @@ namespace ConsoleApp
                         logic.FillTableWithDemoData();
                         Console.WriteLine("Таблица успешно заполнена!");
                         break;
+                    case "6":
+                        Environment.Exit(0);
+                        break;
                     default: 
                         Console.WriteLine("Введена некорректная команда");
                         break;
@@ -61,13 +64,14 @@ namespace ConsoleApp
 
             while (true) {
                 ClearConsoleBySavingInstructions();
-                Console.WriteLine(output);
                 PrintStudentTable();
+                Console.WriteLine(output);
                 Console.WriteLine("Введите индекс студента, которого хотите убрать: \n" +
                     "Если вы передумали убирать студента наберите символ -");
                 string input = Console.ReadLine().Trim();
                 if(input == "-") {
-                    output = "Студент не был убран(";
+                    ClearConsoleBySavingInstructions();
+                    Console.WriteLine("Студент не был убран(");
                     break;
                 }
                 else if (input == "") {
@@ -77,7 +81,7 @@ namespace ConsoleApp
                     output = "Строка содержит не только числа";
                 }
                 else {
-                    index = Convert.ToInt32( input);
+                    index = Convert.ToInt32(input);
 
                     if(index >= 0 && logic.GetCountStudent() <= index) {
                         output = "Такого студента не существует";
@@ -199,7 +203,8 @@ namespace ConsoleApp
                     "\n 2 - Удалить студента " +
                     "\n 3 - Вывести весь список в таблицу" +
                     "\n 4 - Вывести гистограмму: распределение студентов по специальностям" +
-                    "\n 5 - Автоматически заполнить таблицу данными для демонстрации работы");
+                    "\n 5 - Автоматически заполнить таблицу данными для демонстрации работы" +
+                    "\n 6 - Закрыть консоль");
         }
 
         static private void CompletelyClearConsole()
